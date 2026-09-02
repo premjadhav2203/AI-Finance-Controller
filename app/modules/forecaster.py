@@ -1,9 +1,11 @@
 """
-DAY 5 — Forward cash forecaster.
+Forward cash forecaster.
 
-Rule-based number FIRST (must be deterministic — same input, same output),
-then an LLM pass only to explain it in plain language and flag anomalies.
-Don't let the LLM touch the actual numbers.
+The forecast itself is rule-based and deterministic — same input, same
+output, no LLM involved in the calculation. An LLM pass runs afterward
+only to explain the already-computed numbers in plain language and flag
+anything that looks unusual. It never touches the numbers themselves,
+which keeps the forecast auditable independent of the model.
 
 Run:
     python -m app.modules.forecaster

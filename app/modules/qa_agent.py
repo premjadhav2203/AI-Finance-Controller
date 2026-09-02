@@ -1,27 +1,4 @@
-"""
-DAY 4 — Settlement Q&A agent.
 
-Reads data/reconciliation_output.csv and data/exceptions.csv (no new data
-model). Answers questions like "why wasn't order X settled?" using a local
-Ollama model's tool-calling, backed by pandas lookups — so answers are
-grounded in the actual reconciliation output, not invented.
-
-Requires a tool-calling-capable model pulled locally, e.g.:
-    ollama pull qwen2.5:7b
-
-Run:
-    python -m app.modules.qa_agent "why wasn't order ORD-1001 settled?"
-
-TODO — implement the loop below. Structure:
-  1. Define tool schemas for `lookup_by_order_id` and `search_exceptions`.
-  2. Send the user's question + tool schemas to the local model.
-  3. If the model requests a tool call, execute it against the dataframes
-     and send the result back as a "tool" role message.
-  4. Loop until the model returns a final text answer (no tool_calls).
-  5. Print the answer.
-
-Starter skeleton:
-"""
 import sys
 import json
 import pandas as pd

@@ -1,8 +1,15 @@
 """
-DAY 2-3 — The core reconciliation engine.
+Core reconciliation engine.
 
-Pass 1 and Pass 2 are fully implemented below — read them before writing
-Pass 3, since Pass 3 only sees what Pass 1+2 couldn't resolve.
+Matches bank statement records against payment-gateway settlements in
+three passes, each only seeing what the previous pass couldn't resolve:
+
+  Pass 1 — exact match on reference, amount (to the paisa), and date.
+  Pass 2 — fuzzy match within configured amount/date tolerance
+           (see AMOUNT_TOLERANCE_PCT, DATE_WINDOW_DAYS in app/config.py).
+  Pass 3 — LLM-assisted match for anything still unresolved, gated by a
+           minimum confidence threshold so low-confidence guesses fall
+           through to "exception" rather than being silently accepted.
 
 Run:
     python -m app.reconcile

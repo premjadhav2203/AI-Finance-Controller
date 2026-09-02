@@ -1,8 +1,3 @@
-"""
-Central place for every tunable constant. Change tolerances here, not
-inline in reconcile.py, so you can justify every number in one spot when
-someone asks "why 2 days?" in the demo.
-"""
 import os
 from dotenv import load_dotenv
 
@@ -11,17 +6,13 @@ load_dotenv()
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
 
-# --- Reconciliation tolerances -------------------------------------------
-# Pass 1 (deterministic): exact ref match, amount must match to the paisa,
-# date must match exactly. No tolerance applied here by design.
 
-# Pass 2 (fuzzy): allowed differences before we call it a probable match.
-AMOUNT_TOLERANCE_PCT = 0.02      # 2% — covers typical gateway fee deduction
-AMOUNT_TOLERANCE_ABS = 5.00      # ₹5 absolute floor, for small-ticket txns
-DATE_WINDOW_DAYS = 2             # settlement lag between bank and gateway
 
-# Pass 3 (LLM-assisted): below this confidence, force to "exception"
-# instead of accepting the LLM's proposed match.
+AMOUNT_TOLERANCE_PCT = 0.02      
+AMOUNT_TOLERANCE_ABS = 5.00      
+DATE_WINDOW_DAYS = 2             
+
+
 LLM_MIN_CONFIDENCE = 0.70
 
 # --- Synthetic data generation -------------------------------------------

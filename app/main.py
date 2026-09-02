@@ -1,12 +1,3 @@
-"""
-DAY 7 — FastAPI app. Each route just calls the module you already built
-on earlier days — this file shouldn't contain new business logic.
-
-Run:
-    uvicorn app.main:app --reload
-Then open http://localhost:8000/docs to try each endpoint,
-or open frontend/index.html for the dashboard.
-"""
 import subprocess
 import pandas as pd
 from fastapi import FastAPI

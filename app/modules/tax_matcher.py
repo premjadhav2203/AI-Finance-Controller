@@ -1,13 +1,3 @@
-"""
-DAY 6 — Tax-line matcher.
-
-Fully implemented (this one is straightforward rule-based lookup) — read
-it, run it, and wire it into main.py. Feel free to extend EXPECTED_GST_RATE
-in app/config.py with more HSN codes.
-
-Run:
-    python -m app.modules.tax_matcher
-"""
 import pandas as pd
 from app import config
 

@@ -1,7 +1,12 @@
 """
-DAY 1 — Generates 4 synthetic, deliberately messy CSVs into data/:
-  bank_statement.csv, gateway_settlements.csv, internal_ledger.csv,
-  invoice_lines.csv
+Synthetic data generator.
+
+Generates 4 deliberately messy CSVs into data/: bank_statement.csv,
+gateway_settlements.csv, internal_ledger.csv, invoice_lines.csv. "Messy"
+is intentional — real bank/gateway feeds have missing counterparts, split
+settlements, fee-adjusted amounts, date drift, and duplicate refs, and the
+reconciliation engine is built to handle exactly those cases (see
+app/config.py for the injection rates).
 
 Run:
     python -m app.generate_data

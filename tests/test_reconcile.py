@@ -1,8 +1,3 @@
-"""
-Run after Day 2-3 (and again after Day 1 changes) to catch regressions.
-
-    pytest tests/test_reconcile.py -v
-"""
 import subprocess
 import pandas as pd
 
